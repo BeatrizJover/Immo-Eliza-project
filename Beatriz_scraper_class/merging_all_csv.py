@@ -50,7 +50,7 @@ def merge_csv_files(folder_path, output_file):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
-# Example usage
+
 folder_path = "/home/betty/Desktop/Becode_training_path/Projects/Immo-Eliza-project/Beatriz_scraper_class/CSV_folder"
 output_file = "/home/betty/Desktop/Becode_training_path/Projects/Immo-Eliza-project/merged_file.csv"
 merge_csv_files(folder_path, output_file)

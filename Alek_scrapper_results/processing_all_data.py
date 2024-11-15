@@ -48,3 +48,6 @@ print(df['equipped_kitchen'])
 
 print(df.dtypes)
 print(df.describe())
+
+# Save the cleaned DataFrame to a CSV file
+df.to_csv('cleaned_data.csv', index=False)
