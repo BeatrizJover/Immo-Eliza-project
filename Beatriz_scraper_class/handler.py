@@ -5,12 +5,16 @@ from selenium.webdriver.chrome.service import Service
 from bs4 import BeautifulSoup
 import re
 from Property import Property
+import concurrent.futures
 
-properties = []
+# Initialize variables
 csv_file_path = 'properties_urls.csv'
+output_csv_path = 'properties.csv'
 driv_path = '/home/betty/Desktop/Immo-Eliza project/web-scrapping/chromedriver'
 houses_url = []
+properties = []
 
+# Load URLs from CSV file
 try:
     with open(csv_file_path, mode='r') as file:
         reader = csv.reader(file)
@@ -19,31 +23,53 @@ try:
     print(f"Loaded {len(houses_url)} URLs from {csv_file_path}")
 except Exception as e:
     print(f"Error reading from CSV: {e}")
-    
+
 # Limit to the first n URLs
-# houses_url = houses_url[:3]
+houses_url = houses_url[:100]
 
-for url in houses_url:
-    properties.append(Property(url,driv_path))
+# Function to scrape a single property
+def scrape_property(url):
+    try:
+        property_obj = Property(url, driv_path)
+        return property_obj
+    except Exception as e:
+        print(f"Error scraping {url}: {e}")
+        return None
 
+# Start the timer
+start_time = time.time()
 
-# Define the path for your output CSV file
-output_csv_path = 'properties.csv'
+# Use ThreadPoolExecutor for concurrent scraping
+print("Starting concurrent scraping...")
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    results = list(executor.map(scrape_property, houses_url))
+# Stop the timer
+end_time = time.time()
 
-# Collect headers from the first entry in properties_data
-print(properties[1].get_property())
+# Calculate elapsed time
+elapsed_time = end_time - start_time
+print(f"Scraping completed in {elapsed_time:.2f} seconds.")
+
+# Filter out None results
+properties = [prop for prop in results if prop is not None]
+
+# Extract headers for the CSV
 headers = set()
 for property_obj in properties:
     headers.update(property_obj.each_property_data.keys())
-headers = ["URL"] + list(headers)  # "URL" será el primer encabezado
+headers = ["URL"] + list(headers)  # "URL" will be the first header
 
-with open("properties.csv", mode="w", newline="") as file:
+# Write the results to a CSV file
+print("Writing results to CSV...")
+with open(output_csv_path, mode="w", newline="") as file:
     writer = csv.DictWriter(file, fieldnames=headers)
-    writer.writeheader()  # Escribir los encabezados en el archivo
+    writer.writeheader()  # Write headers to the CSV
 
-    # Escribir cada objeto en una fila del archivo CSV
+    # Write each property object to a row in the CSV
     for property_obj in properties:
-        # Crear una fila con todos los encabezados, llenando los valores faltantes con None
+        # Create a row with all headers, filling missing values with None
         row = {header: property_obj.each_property_data.get(header, None) for header in headers if header != "URL"}
-        row["URL"] = property_obj.url  # Agregar la URL al inicio de la fila
+        row["URL"] = property_obj.url  # Add the URL at the beginning of the row
         writer.writerow(row)
+
+print(f"Scraping completed. Results saved to {output_csv_path}")
