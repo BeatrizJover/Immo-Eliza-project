@@ -2,7 +2,6 @@ import re
 import requests
 from bs4 import BeautifulSoup as bs
 import json
-import pandas as pd
 import csv
 from tqdm import tqdm
 
@@ -82,7 +81,7 @@ def requests_scrapper(html_text, property_type=0):
         return True
     
 
-def scraping_session(property_type=0): #property_type is binary for is_house, 0=apartment, 1=house
+def scraping_session(property_type=0): #property_type is binary for is_house: 0=apartment, 1=house
     field_names = ['immo_id', 'zip_code', 'type_of_property', 'subtype_of_property', 'price', 'building_condition', 'facade_number', 'living_area', 'equipped_kitchen', 'bedroom_nr', 'swimming_pool', 'furnished', 'open_fire', 'terrace', 'garden', 'plot_surface']
 
     headers = {
@@ -93,7 +92,7 @@ def scraping_session(property_type=0): #property_type is binary for is_house, 0=
     session.headers = headers
 
     apartments_path = "url_store/apartments_links.csv"
-    houses_path = "url_storehouses_links.csv"    
+    houses_path = "url_store/houses_links.csv"    
 
     apartments_save = "Alek_scrapper_results/apartment"
     houses_save = "Alek_scrapper_results/houses"
@@ -128,3 +127,5 @@ def scraping_session(property_type=0): #property_type is binary for is_house, 0=
         scraping_loop(houses_path, houses_save)
     else:
         scraping_loop(apartments_path, apartments_save)
+
+scraping_session(1)
