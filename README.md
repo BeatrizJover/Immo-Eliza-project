@@ -11,7 +11,11 @@
 ## Description
 This is the first stage of a larger project to create a Machine Learning (ML) model to predict sell prices of real estate properties in Belgium.
 The current task is to gather actual data (at least 10,000 entries) from the Belgian real estate market. This data will be used to train and test ML prediction model.
-finding all the urls 
+finding all the urls
+#Clean data set catagories
+- equipped_kitchen: {0: 'installed', 1: '0', 2: 'hyper equipped', 3: 'semi equipped', 4: 'not installed', 5: 'usa semi 
+  equipped', 6: 'usa hyper equipped', 7: 'usa installed', 8: 'usa uninstalled'}
+- Subtype of property column: 0: 'apartment', 1: 'penthouse', 2: 'flat studio', 3: 'ground floor', 4: 'duplex', 5: 'loft', 6: 'service flat', 7: 'kot', 8: 'triplex', 9: 'apartment unit', 10: 'duplex unit', 11: 'ground floor unit', 12: 'kot unit', 13: 'flat studio unit', 14: 'penthouse unit', 15: 'loft unit', 16: 'triplex unit', 17: 'service flat unit'
 
 **#The dataset delivered as a csv file and covers the following subjects:**
 - Locality
