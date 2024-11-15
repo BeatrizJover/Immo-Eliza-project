@@ -7,7 +7,7 @@
 - [Contributors](#contributors)
 - [Timeline](#timeline)
 - [Project status](#project-status)
-- 
+  
 ## Description
 This is the first stage of a larger project to create a Machine Learning (ML) model to predict sell prices of real estate properties in Belgium.
 The current task is to gather actual data (at least 10,000 entries) from the Belgian real estate market. This data will be used to train and test ML prediction model.
@@ -40,11 +40,11 @@ finding all the urls
   - ```Python 3.12.4```
   - ```pip install request beautifulSoup selenium chardet pandas  ```
 3. Set Up a WebDriver
-Selenium requires a WebDriver to control the browser. Examples include ChromeDriver for Chrome, GeckoDriver for Firefox, etc. To set up:
-Download WebDriver:
-For Chrome: Download ChromeDriver
-For Firefox: Download GeckoDriver
-Ensure the driver version matches your browser version.
+- Selenium requires a WebDriver to control the browser. Examples include ChromeDriver for Chrome, GeckoDriver for Firefox, etc. To set up:
+- Download WebDriver:
+- For Chrome: Download ChromeDriver
+- For Firefox: Download GeckoDriver
+- Ensure the driver version matches your browser version.
 
 ## Usage
 The Python-based tool uses ImmoWeb website, the leading real estate website in Belgium, to scrape the required information and stores it in a dictionary format and later is written as a csv file 
