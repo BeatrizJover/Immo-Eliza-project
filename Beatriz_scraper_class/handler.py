@@ -8,7 +8,7 @@ from Property import Property
 import concurrent.futures
 
 # Initialize variables
-csv_file_path = 'properties_urls.csv'
+csv_file_path =  '/home/betty/Desktop/Immo-Eliza project/web-scrapping/house_and_apart/apartments_links.csv'
 output_csv_path = 'properties.csv'
 driv_path = '/home/betty/Desktop/Immo-Eliza project/web-scrapping/chromedriver'
 houses_url = []
@@ -24,7 +24,7 @@ try:
 except Exception as e:
     print(f"Error reading from CSV: {e}")
 
-# Limit to the first n URLs
+# This will separate the urls list in chunks
 houses_url = houses_url[:100]
 
 # Function to scrape a single property
