@@ -50,7 +50,7 @@ The Python-based tool uses [ImmoWeb](https://www.immoweb.be/en) website, the lea
 ## Usage
 - Execute the script by running the command `python main_url_scrapper.py` in the terminal. This will scrape properties urls listing from [ImmoWeb](https://www.immoweb.be/en) and store them in the `url_store` directory in both `json` and `csv` formats.
 
-- Execute the script by running the command `python main_scrapper.py` in the terminal. This will scrape each property listing from provided list of [ImmoWeb](https://www.immoweb.be/en) urls and store them in the `csv_files` directory in csv format. The script will have to be run more then one time to scrap both apartments and houses and to check additional links acquired during the process. The tqdm library provides user with progress bar to check the % of scraping script execution.
+- Execute the script by running the command `python main_scrapper.py` in the terminal. This will scrape each property listing from provided list of [ImmoWeb](https://www.immoweb.be/en) urls and store them in the `csv_files` directory in csv format. The script will have to be run more then one time to scrap both apartments and houses and to check additional links acquired during the process. The `tqdm` library provides user with progress bar to check the % of scraping script execution.
 
 
 ## Contributors
