@@ -41,7 +41,8 @@ The Python-based tool uses [ImmoWeb](https://www.immoweb.be/en) website, the lea
   - ```Python 3.12.4```
   - ```pip install request beautifulSoup selenium pandas tqdm ```
 3. Set Up a WebDriver
-- Selenium requires a WebDriver to control the browser. Examples include ChromeDriver for Chrome, GeckoDriver for Firefox, etc. To set up:
+- Selenium requires a WebDriver to control the browser. Examples include ChromeDriver for Chrome, GeckoDriver for Firefox, etc.
+  **To set up:**
 - Download WebDriver:
 - For Chrome: [Download ChromeDriver](https://developer.chrome.com/docs/chromedriver/downloads)
 - For Firefox: [Download GeckoDriver](https://geckodriver.com/download/)
