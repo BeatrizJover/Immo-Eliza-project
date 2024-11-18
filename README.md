@@ -39,7 +39,7 @@ The Python-based tool uses [ImmoWeb](https://www.immoweb.be/en) website, the lea
 1. Clone the repository: ``` git clone https://github.com/BeatrizJover/Immo-Eliza-project.git```
 2. Install dependencies: 
   - ```Python 3.12.4```
-  - ```pip install request beautifulSoup selenium pandas  ```
+  - ```pip install request beautifulSoup selenium pandas tqdm ```
 3. Set Up a WebDriver
 - Selenium requires a WebDriver to control the browser. Examples include ChromeDriver for Chrome, GeckoDriver for Firefox, etc. To set up:
 - Download WebDriver:
@@ -48,8 +48,10 @@ The Python-based tool uses [ImmoWeb](https://www.immoweb.be/en) website, the lea
 - Ensure the driver version matches your browser version.
 
 ## Usage
-- Execute the script by running the command `python main.py` in the terminal.
-- This will scrape the property listing informations from [ImmoWeb](https://www.immoweb.be/en) and store them in the `data` directory in both `json` and `csv` formats.
+- Execute the script by running the command `python main_url_scrapper.py` in the terminal. This will scrape properties urls listing from [ImmoWeb](https://www.immoweb.be/en) and store them in the `url_store` directory in both `json` and `csv` formats.
+
+- Execute the script by running the command `python main_scrapper.py` in the terminal. This will scrape each property listing from provided list of [ImmoWeb](https://www.immoweb.be/en) urls and store them in the `csv_files` directory in csv format. The script will have to be run more then one time to scrap both apartments and houses and to check additional links acquired during the process. The tqdm library provides user with progress bar to check the % of scraping script execution.
+
 
 ## Contributors
 The project was made by a group of Junior AI & Data Scientists (in alphabetical order):
