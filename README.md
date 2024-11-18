@@ -11,7 +11,9 @@
 ## Description
 This is the first stage of a larger project to create a Machine Learning (ML) model to predict sell prices of real estate properties in Belgium. The current task is to gather actual data (at least 10,000 entries) from the Belgian real estate market. This data will be used to train and test ML prediction model.
 
-The Python-based tool uses [ImmoWeb](https://www.immoweb.be/en) website, the leading real estate website in Belgium, to scrape the required information and stores it in a dictionary format and later is written as a `csv` file.
+The Python-based tool uses [ImmoWeb](https://www.immoweb.be/en) website, the leading real estate website in Belgium, to scrape the required information and stores it in a dictionary format and later is written as a `csv` file. 
+
+Final result stored in `complete_dataset.csv`
 
 
 **The dataset delivered as a csv file and covers the following subjects:**
